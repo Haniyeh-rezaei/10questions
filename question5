@@ -1,0 +1,24 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Enter a number");
+        String input= scanner.nextLine();
+        boolean output=chek(input);
+        if (output) System.out.println("They are equal");
+        else System.out.println("They are not equal");
+    }
+    public static boolean chek(String number) {
+        int i=number.length();
+        if (i%2!=0){
+            System.out.println("The number of digits must be even");
+            return false;
+        }
+        int j=i/2,r=0,l=0;
+        for (int z = 0; z < i; z++) {
+            r=r+number.charAt(z) - '0';
+            l=l+number.charAt(z+j)-'0';
+        }
+        return r==l;
+    }
+}
