@@ -1,0 +1,27 @@
+ import java.util.*;
+public class Main {
+     public static void main(String[] args) {
+         Scanner scanner=new Scanner(System.in);
+         System.out.println("Please enter number1");
+         String number1=scanner.nextLine();
+         System.out.println("Please enter number2");
+         String number2=scanner.nextLine();
+         String sum=add(number1,number1);
+         System.out.println(sum);
+         scanner.close();
+     }
+     public static String add( String number1,String number2) {
+         StringBuilder output=new StringBuilder();
+         int i=number1.length()-1;
+         int j=number2.length()-1;
+         int cout=0;
+         while (cout>0||i>=0||j>=0) {
+             int value1 = (i >= 0) ? number1.charAt(i--) - '0' : 0;
+             int value2 = (j >= 0) ? number2.charAt(j--) - '0' : 0;
+             int sum=value1+value2+cout;
+             cout=sum/10;
+             output.insert(0, sum % 10);
+         }
+         return output.toString();
+     }
+ }
