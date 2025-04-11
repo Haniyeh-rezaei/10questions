@@ -1,0 +1,43 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args){
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("تعداد اعضای آرایه را وارد کن");
+        int n=scanner.nextInt();
+        int[] array1=new int[n];
+        for (int i = 0; i < n; i++) {
+            array1[i] = scanner.nextInt();
+        }
+        System.out.println("عدد اول را وارد کن");
+        int i=scanner.nextInt();
+        System.out.println("عدد دوم را وارد کن");
+        int j=scanner.nextInt();
+        int distance = Integer.MAX_VALUE;
+        int posi = -1, posj = -1;
+        for (int z = 0; z < n; z++) {
+            if (array1[z] == i) {
+                posi = z;
+                if (posj != -1) {
+                    int dist = Math.abs(posi - posj);
+                    if (dist < distance) {
+                        distance = dist;
+                    }
+                }
+            } else if (array1[z] == j) {
+                posj = z;
+                if (posi != -1) {
+                    int dist = Math.abs(posi - posj);
+                    if (dist < distance) {
+                        distance = dist;
+                    }
+                }
+            }
+        }
+        if (posi == -1 || posj == -1) {
+            System.out.println("اعداد وجود ندارند.");
+        } else {
+            System.out.println(distance);
+        }
+
+    }
+}
