@@ -1,0 +1,26 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("تعداد اعضای آرایه را وارد کن");
+        int n = scanner.nextInt();
+        int[] array1 = new int[n];
+        for (int i = 0; i < n; i++) {
+            System.out.println("آرایه را وارد کن");
+            array1[i] = scanner.nextInt();
+        }
+        boolean[] seen = new boolean[n];
+        for (int i = 0; i < array1.length; i++) {
+            if (!seen[i]) {
+                int count = 1;
+                for (int j = i + 1; j < array1.length; j++) {
+                    if (array1[i] == array1[j]) {
+                        count++;
+                        seen[j] = true;
+                    }
+                }
+                System.out.println("عدد " + array1[i] + " تکرار شده: " + count + " بار");
+            }
+        }
+    }
+}
